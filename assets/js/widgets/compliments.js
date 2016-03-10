@@ -10,13 +10,13 @@ var compliments = [
     post: ''
   },
   {
-    pre: 'Go get them',
+    pre: 'Go get em',
     meat: 'tiger',
     post: 'You got this'
   },
   {
     pre: 'Loveable.',
     meat: 'Capable.',
-    post: 'Awesome'
+    post: 'Awesome.'
   }
-]
+];
