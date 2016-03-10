@@ -9,6 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="assets/vendor/skeleton.css">
 	<!-- END: Vendor style sheets -->
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+	<!-- Load our config file early -->
+	<script src="assets/js/config.js"></script>
 	<meta name="google" value="notranslate" />
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
@@ -27,7 +29,11 @@
 		<!-- The gut of the screen -->
 		<div class="row" id="middle-row">
 			<div class="three columns blank" id="left-middle-blank">&nbsp;</div>
-			<div class="six columns section" id="compliment">Compliment</div>
+			<div class="six columns section" id="compliment">
+				<p class="compliment-pre"></p>
+				<p class="compliment-meat"></p>
+				<p class="compliment-post"></p>
+			</div>
 			<div class="three columns blank" id="right-middle-blank">&nbsp;</div>
 		</div>
 		<!-- Bottom row! -->
@@ -55,6 +61,9 @@
 			console.log(xhr);
 		});
 	</script>
+	<!-- START: Custom JS -->
+	<script src="assets/js/widgets/compliments.js"></script>
+	<!-- END: Custom JS -->
 </body>
 
 </html>

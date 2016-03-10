@@ -12,6 +12,7 @@ import random
 import os.path
 
 PORT_NUMBER = 8080
+DO_PULL = True
 
 #This class will handles any incoming request from
 #the browser
@@ -71,6 +72,9 @@ class mmirrorServer(BaseHTTPRequestHandler):
 				return
 
 			if self.path.startswith('/hash'):
+				# Do a git pull if necessary
+				if DO_PULL == True:
+					popen('git pull')
 				# Call down to the system to get the latest hash
 				githash = popen('git rev-parse HEAD').read()
 				# Serve at up the response (basically send exactly what we got)
