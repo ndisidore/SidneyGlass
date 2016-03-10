@@ -22,12 +22,13 @@ class mmirrorServer(BaseHTTPRequestHandler):
 		if self.path == "/":
 			self.path = "/index.html"
 
+		# Dictionary of mime types to send for requests
 		mime_types = {
 		    'html': 'text/html',
 		    'jpg':'image/jpg',
 		    'gif': 'image/gif',
 		    'js': 'application/javascript',
-		    'css': 'text/css',
+		    '.css': 'text/css',
 		}
 
 		try:
@@ -70,7 +71,7 @@ class mmirrorServer(BaseHTTPRequestHandler):
 				return
 
 			if self.path.startswith('/hash'):
-				# Call down toh the system to get the latest hash
+				# Call down to the system to get the latest hash
 				githash = popen('git rev-parse HEAD').read()
 				# Serve at up the response (basically send exactly what we got)
 				self.send_response(200)
@@ -83,7 +84,7 @@ class mmirrorServer(BaseHTTPRequestHandler):
 				# Open the static file requested and send it
 				f = open(curdir + sep + self.path)
 				self.send_response(200)
-				self.send_header('Content-type',mimetype)
+				self.send_header('Content-type', mimetype)
 				self.end_headers()
 				self.wfile.write(f.read())
 				f.close()

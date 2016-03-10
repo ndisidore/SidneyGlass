@@ -44,12 +44,12 @@
 	<script src="assets/vendor/ical.js"></script>
 	<script src="assets/vendor/XMLHttpRequest.js"></script>
 	<script src="assets/vendor/xhr-ajax.js"></script>
-	<script src="assets/vendor/openWeather.min.js"></script>
+	<!-- <script src="assets/vendor/openWeather.min.js"></script> -->
 	<!-- END: Vendor javascript -->
 	<script type="text/javascript">
 		var cachedGitHash = '';
 		ajax('/hash', {}).then(function(xhr) {
-			cachedGitHash = xhr.responseTest;
+			cachedGitHash = xhr.responseText.replace(/(\r\n|\n|\r)/gm,'');
 		}, function(xhr) {
 			console.error('HASH API returned', xhr.status, xhr.statusText);
 			console.log(xhr);
