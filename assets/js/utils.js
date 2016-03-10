@@ -20,17 +20,21 @@ function updateSectionText(sectionID, txt, animation) {
 }
 
 function doVersionCheck() {
-  $.getJSON('controllers/hash.php')
-    .success(function(data) {
-			// The githash variable is located in index.php
-			if (data && data.gitHash !== gitHash) {
-				window.location.reload();
-				window.location.href = window.location.href;
-      }
-    });
+  // @TODO: Make this type of call the only one that can do a git pull
+  ajax('/hash', {}).then(function(xhr) {
+    var curGitHash = xhr.responseText.replace(/(\r\n|\n|\r)/gm,'');
+    if ('' !== curGitHash && curGitHash !== cachedGitHash) {
+      // Hash mismatch; reload the page
+      window.location.reload();
+      window.location.href = window.location.href;
+    }
+  }, function(xhr) {
+    console.error('HASH API returned', xhr.status, xhr.statusText);
+    console.log(xhr);
+  });
 }
 
-function initVersionCheck {
+function initVersionCheck() {
 	config.version.intervalID = setInterval(function () {
 		checkVersion();
 	}, config.version.updateInterval);

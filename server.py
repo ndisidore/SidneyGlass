@@ -4,7 +4,7 @@
 #     pip install requests
 
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
-from os import curdir, sep, popen
+from os import curdir, sep, popen, system
 import requests
 import urllib
 import urlparse
@@ -74,7 +74,7 @@ class mmirrorServer(BaseHTTPRequestHandler):
 			if self.path.startswith('/hash'):
 				# Do a git pull if necessary
 				if DO_PULL == True:
-					popen('git pull')
+					system('git pull')
 				# Call down to the system to get the latest hash
 				githash = popen('git rev-parse HEAD').read()
 				# Serve at up the response (basically send exactly what we got)
