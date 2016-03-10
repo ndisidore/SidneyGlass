@@ -1,0 +1,66 @@
+{
+  "name": "mmirror-dash",
+  "authors": [
+    "Nathan Disidore <ndisidore@gmail.com>"
+  ],
+  "description": "JS Raspberry Pi Magic Mirror Dashboard",
+  "main": "",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ical.js": "^1.1.2",
+    "skeleton": "skeleton-css#^2.0.4",
+    "open-weather": "^1.2.0",
+    "font-awesome": "fontawesome#^4.5.0",
+    "animate.css": "^3.5.1",
+    "cash": "^1.0.0",
+    "xhr-ajax": "^2.0.0"
+  },
+  "overrides": {
+    "open-weather": {
+      "main": {
+        "development": "build/openWeather.min.js",
+        "production": "build/openWeather.min.js"
+      }
+    },
+    "cash": {
+      "main": {
+        "development": "dist/cash.js",
+        "production": "dist/cash.min.js"
+      }
+    },
+    "animate.css": {
+      "main": {
+        "development": "animate.css",
+        "production": "animate.min.css"
+      }
+    },
+    "font-awesome": {
+      "main": {
+        "development": "css/font-awesome.css",
+        "production": "css/font-awesome.min.css"
+      }
+    },
+    "blanket": {
+      "ignore": true
+    },
+    "qunit": {
+      "ignore": true
+    }
+  },
+  "group": {
+    "home": ["skeleton", "font-awesome", "animate.css"],
+    "admin": ["cash", "ical.js", "open-weather", "xhr", "xhr-ajax"]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "SidneyGlass",
+  "description": "Raspberry Pi magic mirror dashboard done right",
+  "version": "0.0.2",
+  "keywords": [
+    "raspberry",
+    "pi",
+    "magic-mirror",
+    "dashboard"
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@github.com:ndisidore/SidneyGlass.git"
+    }
+  ],
+  "homepage": "https://github.com/ndisidore/SidneyGlass",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "main-bower-files": "^2.11.1"
+  }
+}

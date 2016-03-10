@@ -1,0 +1,32 @@
+.blank {
+  visibility: hidden;
+}
+.section {
+  background-color: #5C5A59;
+  height: 100%;
+}
+html {
+  background-color: black;
+}
+#top-row {
+  height: 20%;
+}
+#middle-row {
+  height: 40%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+#bottom-row {
+  height: 20%;
+}
+
+/*********************
+*  Media Queries
+**********************/
+
+@media (min-width: 550px) {
+  .container {
+    width: 100%;
+    max-width: none;
+  }
+}
