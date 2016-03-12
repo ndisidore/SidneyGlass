@@ -30,23 +30,27 @@
 		<div class="row" id="middle-row">
 			<div class="three columns blank" id="left-middle-blank">&nbsp;</div>
 			<div class="six columns section" id="compliment">
-				<p class="compliment-pre"></p>
-				<p class="compliment-meat"></p>
-				<p class="compliment-post"></p>
+				<p id="compliment-pre">a</p>
+				<p id="compliment-meat">b</p>
+				<p id="compliment-post">c</p>
 			</div>
 			<div class="three columns blank" id="right-middle-blank">&nbsp;</div>
 		</div>
 		<!-- Bottom row! -->
 		<div class="row" id="bottom-row">
 			<div class="three columns blank" id="left-middle-blank">&nbsp;</div>
-			<div class="six columns section" id="quote">Quote here!</div>
+			<div class="six columns section" id="quote">
+				<p id="quote-meat">Quote Meat</p>
+				<p id="quote-author">-Quote Author</p>
+			</div>
 			<div class="three columns blank" id="right-middle-blank">&nbsp;</div>
 		</div>
 
 	</div>
 
 	<!-- START: Vendor javascript -->
-	<script src="assets/vendor/cash.min.js"></script>
+	<!-- <script src="assets/vendor/cash.min.js"></script> -->
+	<script src="assets/vendor/cash.js"></script>
 	<script src="assets/vendor/ical.js"></script>
 	<script src="assets/vendor/XMLHttpRequest.js"></script>
 	<script src="assets/vendor/xhr-ajax.js"></script>
@@ -64,6 +68,10 @@
 	<!-- START: Custom JS -->
 	<script src="assets/js/utils.js"></script>
 	<script src="assets/js/widgets/compliments.js"></script>
+	<script src="assets/js/widgets/quote.js"></script>
+	<script type="text/javascript">
+		//quoteWidget.init();
+	</script>
 	<!-- END: Custom JS -->
 </body>
 

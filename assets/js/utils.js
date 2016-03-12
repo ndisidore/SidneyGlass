@@ -1,3 +1,5 @@
+'use strict';
+
 var Utils = {};
 
 Utils.varStorage = {
@@ -64,6 +66,13 @@ Utils.CSSPrefixedEventListener = function(element, type, callback) {
 	}
 }
 
+Utils.fadeOutCurrentContent = function(section) {
+  if (typeof section == "string") section = document.getElementById('section');
+  // Grab all the children
+  //$(section).children().animateCss('fadeOut');
+  $(section).animateCss('fadeOut');
+}
+
 function initVersionCheck() {
   config.version.intervalID = setInterval(function() {
     Utils.doVersionCheck();
@@ -73,7 +82,6 @@ function initVersionCheck() {
 // Extend cash.js to support animate.css
 $.fn.extend({
   animateCss: function(animationName) {
-    var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
     var context = this;
     Utils.CSSPrefixedEventListener(context, 'AnimationEnd', function() {
       $(context).removeClass('animated ' + animationName);
