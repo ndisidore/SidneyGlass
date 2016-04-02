@@ -2,7 +2,7 @@ var quoteWidget = {
   curQuote: {},
 };
 
-quoteWidget.getNew = function (doUpdate) {
+quoteWidget.getNew = function(doUpdate) {
   doUpdate = doUpdate || false;
   ajax('/quote', {}).then(function(xhr) {
     var quoteJSON = xhr.responseText;
@@ -28,7 +28,7 @@ quoteWidget.getNew = function (doUpdate) {
   });
 }
 
-quoteWidget.updateDisplay = function () {
+quoteWidget.updateDisplay = function() {
   var quoteElem = document.getElementById('quote');
   $(quoteElem).on('contentFadeFinished', function() {
     // Update text

@@ -59,7 +59,7 @@
 	<script type="text/javascript">
 		var cachedGitHash = '';
 		ajax('/hash', {}).then(function(xhr) {
-			cachedGitHash = xhr.responseText.replace(/(\r\n|\n|\r)/gm,'');
+			cachedGitHash = xhr.responseText.replace(/(\r\n|\n|\r)/gm, '');
 		}, function(xhr) {
 			console.error('HASH API returned', xhr.status, xhr.statusText);
 			console.log(xhr);

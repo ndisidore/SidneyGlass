@@ -29,8 +29,9 @@ Utils.updateSectionText = function(sectionID, txt, animation) {
 }
 
 Utils.isVisible = function(el) {
-  return el && el.clientWidth !== 0 &&
-    el.clientHeight !== 0 &&
+  var computed = window.getComputedStyle(el, null);
+  return computed.getPropertyValue('visibility') !== 'hidden' &&
+    computed.getPropertyValue('display') !== 'none' &&
     el.style.opacity !== 0 &&
     el.style.visibility !== 'hidden';
 }
@@ -83,6 +84,17 @@ Utils.fadeOutCurrentContent = function(section) {
     //$(section).removeClass('animated fadeOut');
     $(section).trigger('contentFadeFinished');
   });
+}
+
+/**
+ * Get a random integer between `min` and `max`.
+ *
+ * @param {number} min - min number
+ * @param {number} max - max number
+ * @return {int} a random integer
+ */
+Utils.getRandomInt = function(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function initVersionCheck() {

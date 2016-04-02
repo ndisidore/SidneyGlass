@@ -5,6 +5,9 @@
   background-color: #5C5A59;
   height: 100%;
 }
+.hidden {
+  visibility: hidden;
+}
 html {
   background-color: black;
 }
