@@ -54,11 +54,18 @@ Utils.doVersionCheck = function() {
 Utils.CSSPrefixedEventListener = function(element, type, callback) {
   if ( typeof element === 'object' && element[0] ) element = element[0];
   // Lets make sure there's not a bunch of the same listener
-  if (element.id in Utils.varStorage.cssEvents && Utils.varStorage.cssEvents[element.id] == type) {
+  if (element.id in Utils.varStorage.cssEvents
+    && type in Utils.varStorage.cssEvents[element.id]
+    && -1 !== Utils.varStorage.cssEvents[element.id][type].indexOf(callback.toString())) {
     return;
   }
   // Add to the cached list of animationListeners
-  Utils.varStorage.cssEvents[element.id] = type;
+  if ('undefined' === typeof Utils.varStorage.cssEvents[element.id]) {
+    Utils.varStorage.cssEvents[element.id] = {};
+    Utils.varStorage.cssEvents[element.id][type] = [];
+  }
+  Utils.varStorage.cssEvents[element.id][type].push(callback.toString());
+  // Add the new event listener
   var pfx = ["webkit", "moz", "MS", "o", ""];
 	for (var p = 0; p < pfx.length; p++) {
 		if (!pfx[p]) type = type.toLowerCase();
@@ -71,6 +78,11 @@ Utils.fadeOutCurrentContent = function(section) {
   // Grab all the children
   //$(section).children().animateCss('fadeOut');
   $(section).animateCss('fadeOut');
+  Utils.CSSPrefixedEventListener(section, 'AnimationEnd', function() {
+    $(section).children().html('&nbsp;');
+    //$(section).removeClass('animated fadeOut');
+    $(section).trigger('contentFadeFinished');
+  });
 }
 
 function initVersionCheck() {
@@ -79,12 +91,16 @@ function initVersionCheck() {
   }, config.version.updateInterval);
 }
 
+String.prototype.stripSlashes = function(){
+    return this.replace(/\\(.)/mg, "$1");
+}
+
 // Extend cash.js to support animate.css
 $.fn.extend({
   animateCss: function(animationName) {
     var context = this;
     Utils.CSSPrefixedEventListener(context, 'AnimationEnd', function() {
-      $(context).removeClass('animated ' + animationName);
+      $(context).removeClass(animationName).removeClass('animated');
     });
     $(context).addClass('animated ' + animationName);
   }
