@@ -53,11 +53,9 @@ Utils.doVersionCheck = function() {
 
 // Helper for adding CSS event listeners
 Utils.CSSPrefixedEventListener = function(element, type, callback) {
-  if ( typeof element === 'object' && element[0] ) element = element[0];
+  if (typeof element === 'object' && element[0]) element = element[0];
   // Lets make sure there's not a bunch of the same listener
-  if (element.id in Utils.varStorage.cssEvents
-    && type in Utils.varStorage.cssEvents[element.id]
-    && -1 !== Utils.varStorage.cssEvents[element.id][type].indexOf(callback.toString())) {
+  if (element.id in Utils.varStorage.cssEvents && type in Utils.varStorage.cssEvents[element.id] && -1 !== Utils.varStorage.cssEvents[element.id][type].indexOf(callback.toString())) {
     return;
   }
   // Add to the cached list of animationListeners
@@ -68,19 +66,17 @@ Utils.CSSPrefixedEventListener = function(element, type, callback) {
   Utils.varStorage.cssEvents[element.id][type].push(callback.toString());
   // Add the new event listener
   var pfx = ["webkit", "moz", "MS", "o", ""];
-	for (var p = 0; p < pfx.length; p++) {
-		if (!pfx[p]) type = type.toLowerCase();
-		element.addEventListener(pfx[p] + type, callback, false);
-	}
+  for (var p = 0; p < pfx.length; p++) {
+    if (!pfx[p]) type = type.toLowerCase();
+    element.addEventListener(pfx[p] + type, callback, false);
+  }
 }
 
 Utils.fadeOutCurrentContent = function(section) {
   if (typeof section == "string") section = document.getElementById('section');
-  // Grab all the children
-  //$(section).children().animateCss('fadeOut');
   $(section).animateCss('fadeOut');
   Utils.CSSPrefixedEventListener(section, 'AnimationEnd', function() {
-    $(section).children().html('&nbsp;');
+    //$(section).children().html('&nbsp;');
     //$(section).removeClass('animated fadeOut');
     $(section).trigger('contentFadeFinished');
   });
@@ -103,8 +99,8 @@ function initVersionCheck() {
   }, config.version.updateInterval);
 }
 
-String.prototype.stripSlashes = function(){
-    return this.replace(/\\(.)/mg, "$1");
+String.prototype.stripSlashes = function() {
+  return this.replace(/\\(.)/mg, "$1");
 }
 
 // Extend cash.js to support animate.css

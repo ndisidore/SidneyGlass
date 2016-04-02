@@ -10,13 +10,14 @@ import urllib
 import urlparse
 import random
 import os.path
+import re
 
 PORT_NUMBER = 8080
 DO_PULL = True
 
 #This class will handles any incoming request from
 #the browser
-class mmirrorServer(BaseHTTPRequestHandler):
+class mMirrorServer(BaseHTTPRequestHandler):
 
 	#Handler for the GET requests
 	def do_GET(self):
@@ -86,7 +87,9 @@ class mmirrorServer(BaseHTTPRequestHandler):
 
 			if sendReply == True:
 				# Open the static file requested and send it
-				f = open(curdir + sep + self.path)
+				# strip query string first
+				no_q_string = re.sub(r'\?(\S+)$', '', self.path)
+				f = open(curdir + sep + no_q_string)
 				self.send_response(200)
 				self.send_header('Content-type', mimetype)
 				self.end_headers()
@@ -101,7 +104,7 @@ class mmirrorServer(BaseHTTPRequestHandler):
 try:
 	# Create a web server and define the handler to manage the
 	# incoming request
-	server = HTTPServer(('', PORT_NUMBER), mmirrorServer)
+	server = HTTPServer(('', PORT_NUMBER), mMirrorServer)
 	print 'Started httpserver on port ' , PORT_NUMBER
 
 	#Wait forever for incoming http requests

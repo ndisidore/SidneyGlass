@@ -9,7 +9,7 @@ quoteWidget.getNew = function(doUpdate) {
     var parsedQuote = null;
     try {
       parsedQuote = JSON.parse(quoteJSON);
-    } catch(SyntaxError) {
+    } catch (SyntaxError) {
       try {
         parsedQuote = JSON.parse(quoteJSON.stripSlashes());
       } catch (err) {
@@ -33,7 +33,7 @@ quoteWidget.updateDisplay = function() {
   $(quoteElem).on('contentFadeFinished', function() {
     // Update text
     $(quoteElem).find('#quote-meat').text(quoteWidget.curQuote.quoteText);
-    $(quoteElem).find('#quote-author').text(quoteWidget.curQuote.quoteAuthor);
+    $(quoteElem).find('#quote-author-content').text(quoteWidget.curQuote.quoteAuthor);
     // Update animation
     $(quoteElem).animateCss('fadeInUp');
   });
