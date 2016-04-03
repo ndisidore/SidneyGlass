@@ -3,14 +3,14 @@ var compliment = {
   components: {},
 };
 
-compliment.updateDisplay = function () {
-  var randInt = Utils.getRandomInt(0, compliments.length);
+compliment.updateDisplay = function() {
+  var randInt = Utils.getRandomInt(0, config.compliments.array.length-1);
   compliment.curCompliment = config.compliments.array[randInt];
   compliment.fadeOut();
   if (Utils.isVisible(compliment.components.post)) {
-    //Utils.CSSPrefixedEventListener(compliment.components.post, 'AnimationEnd', function() {
-    //  compliment.replaceAndFadeIn();
-    //});
+    Utils.CSSPrefixedEventListener(compliment.components.post, 'AnimationEnd', function() {
+      compliment.replaceAndFadeIn();
+    });
   } else {
     compliment.replaceAndFadeIn();
   }
@@ -32,9 +32,14 @@ compliment.fadeOut = function() {
 }
 
 compliment.fadeIn = function() {
+  // Setup to fade in one at a time
+  Utils.CSSPrefixedEventListener(compliment.components.pre, 'AnimationEnd', function() {
+    $(compliment.components.meat).animateCss('fadeInDown');
+  });
+  Utils.CSSPrefixedEventListener(compliment.components.meat, 'AnimationEnd', function() {
+    $(compliment.components.post).animateCss('fadeInRightBig');
+  });
   $(compliment.components.pre).animateCss('fadeInLeftBig');
-  $(compliment.components.meat).animateCss('fadeInDown');
-  $(compliment.components.post).animateCss('fadeInRightBig');
 }
 
 compliment.init = function() {

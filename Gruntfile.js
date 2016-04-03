@@ -21,15 +21,27 @@ module.exports = function(grunt) {
         filter: 'isFile',
       },
     },
+    sass: {
+      dist: {
+        files: {
+          'assets/css/main.css': 'assets/css/main.scss'
+        }
+      }
+    },
+    curl: {
+      'assets/fonts/raleway-regular.woff': 'https://github.com/yougov/raleway-webfont/raw/master/font/raleway-regular.woff'
+    },
     clean: {
       vendor: ['assets/vendor'],
-      release: ["path/to/another/dir/one", "path/to/another/dir/two"]
+      fonts: ['assets/fonts']
     }
   });
 
   grunt.loadNpmTasks('main-bower-files');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-curl');
 
-  grunt.registerTask('default', ['clean:vendor', 'bower', 'copy']);
+  grunt.registerTask('default', ['clean', 'bower', 'sass', 'curl', 'copy']);
 };

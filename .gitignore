@@ -1,6 +1,7 @@
 # CUSTOM GITIGNORE COMPONENTS
 bower_components
 assets/js/config.js
+.sass-cache/
 
 ## DEFAULT NODE/JS .GITIGNORE
 # Logs
