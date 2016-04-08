@@ -21,17 +21,17 @@
   "dependencies": {
     "ical.js": "^1.1.2",
     "skeleton": "skeleton-css#^2.0.4",
-    "open-weather": "^1.2.0",
+    "weather.js": "noazark/weather",
     "font-awesome": "fontawesome#^4.5.0",
     "animate.css": "^3.5.1",
     "cash": "^1.0.0",
     "xhr-ajax": "^2.0.0"
   },
   "overrides": {
-    "open-weather": {
+    "weather.js": {
       "main": {
-        "development": "build/openWeather.min.js",
-        "production": "build/openWeather.min.js"
+        "development": "dist/weather.js",
+        "production": "dist/weather.min.js"
       }
     },
     "cash": {
@@ -60,7 +60,16 @@
     }
   },
   "group": {
-    "home": ["skeleton", "font-awesome", "animate.css"],
-    "admin": ["cash", "ical.js", "open-weather", "xhr", "xhr-ajax"]
+    "home": [
+      "skeleton",
+      "font-awesome",
+      "animate.css"
+    ],
+    "admin": [
+      "cash",
+      "ical.js",
+      "xhr",
+      "xhr-ajax"
+    ]
   }
 }

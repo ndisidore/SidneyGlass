@@ -43,7 +43,10 @@ body {
   position: relative;
   color: #FFFFFF; }
   .section#compliment #compliment-meat {
-    font-family: 'Pacifico', cursive; }
+    font-family: 'Pacifico', cursive;
+    font-size: 48px; }
+  .section#compliment #compliment-pre, .section#compliment #compliment-post {
+    font-size: 24px; }
 
 /*********************
 *  Quote Section
