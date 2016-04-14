@@ -71,6 +71,23 @@ body {
     left: -60px; }
 
 /*********************
+*  Calendar Section
+**********************/
+.section#time-and-calendars table#calendar-events {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px; }
+  .section#time-and-calendars table#calendar-events td {
+    border: none;
+    padding: 2px 5px; }
+    .section#time-and-calendars table#calendar-events td.date-time {
+      width: 50px; }
+    .section#time-and-calendars table#calendar-events td:first-child {
+      padding-left: 0; }
+    .section#time-and-calendars table#calendar-events td:last-child {
+      padding-right: 0; }
+
+/*********************
 *  Media Queries
 **********************/
 @media (min-width: 550px) {

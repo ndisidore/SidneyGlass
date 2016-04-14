@@ -38,11 +38,11 @@ var config = {
     displaySymbol: true,
     defaultSymbol: 'calendar', // Fontawsome Symbol see http://fontawesome.io/cheatsheet/
     urls: [{
-      // Home Calendar
+      name: 'Home Calendar',
       symbol: 'fort-awesome',
       url: 'http://home-calendar-url'
     }, {
-      // US National Holidays
+      name: 'US National Holidays',
       symbol: 'star',
       url: 'https://calendar.google.com/calendar/ical/en.usa%23holiday%40group.v.calendar.google.com/public/basic.ics',
     }, ]

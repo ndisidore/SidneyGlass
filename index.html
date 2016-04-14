@@ -23,7 +23,16 @@
 
 		<!-- Top Row! -->
 		<div class="row" id="top-row">
-			<div class="four columns section" id="time-and-calendars">Four</div>
+			<div class="four columns section" id="time-and-calendars">
+				<table id="calendar-events">
+					<tbody id="calendar-tbody">
+						<tr>
+							<td class="date-time">DT</td>
+							<td class="summary">Sum</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 			<div class="four columns blank" id="top-blank">&nbsp;</div>
 			<div class="four columns section" id="weather">Four</div>
 		</div>
@@ -54,8 +63,7 @@
 	</div>
 
 	<!-- START: Vendor javascript -->
-	<!-- <script src="assets/vendor/cash.min.js"></script> -->
-	<script src="assets/vendor/cash.js"></script>
+	<script src="assets/vendor/cash.min.js"></script>
 	<script src="assets/vendor/ical.js"></script>
 	<script src="assets/vendor/XMLHttpRequest.js"></script>
 	<script src="assets/vendor/xhr-ajax.js"></script>
@@ -74,6 +82,7 @@
 	<script src="assets/js/utils.js"></script>
 	<script src="assets/js/widgets/compliments.js"></script>
 	<script src="assets/js/widgets/quote.js"></script>
+	<script src="assets/js/widgets/calendar.js"></script>
 	<script type="text/javascript">
 		//quoteWidget.init();
 	</script>

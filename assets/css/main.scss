@@ -83,6 +83,34 @@ body {
 }
 
 /*********************
+*  Calendar Section
+**********************/
+$event-v-padding: 2px;
+$event-h-padding: 5px;
+.section#time-and-calendars {
+  table#calendar-events {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+
+    td {
+      border: none;
+      padding: $event-v-padding $event-h-padding;
+
+      &.date-time {
+        width: 50px;
+      }
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+/*********************
 *  Media Queries
 **********************/
 
