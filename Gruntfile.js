@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       }
     },
     copy: {
-      main: {
+      fa_fonts: {
         expand: true,
         cwd: 'bower_components/font-awesome/fonts',
         src: '**',
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     },
     clean: {
       vendor: ['assets/vendor'],
-      fonts: ['assets/fonts']
+      //fonts: ['assets/fonts']
     }
   });
 

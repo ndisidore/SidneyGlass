@@ -1,10 +1,17 @@
 /*********************
 *  General Setup
 **********************/
+$background-text-color: #808080;
 @font-face {
   font-family: "Raleway Webfont";
   src: url('../fonts/raleway-regular.woff') format('woff');
   font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'MeteoconsRegular';
+  src: url('../fonts/meteocons-webfont.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
 }
 html {
@@ -68,13 +75,12 @@ body {
   }
 
   &::after {
-    color: #808080;
-    font: normal normal normal 14px/1 FontAwesome;
+    color: $background-text-color;
+    font: normal normal normal 5em/1 FontAwesome;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     content: "\f10d";
     display: block;
-    font-size: 80px;
     line-height: 1;
     position: absolute;
     top: 10px;
@@ -111,9 +117,81 @@ $event-h-padding: 5px;
 }
 
 /*********************
+*  Weather Section
+**********************/
+.section#weather {
+  table#weather-table {
+    text-align: center;
+
+    td {
+      padding: $event-v-padding $event-h-padding;
+    }
+    th {
+      padding: 0;
+
+      &.time-am::after {
+        content: "A.M.";
+        font-size: .6em;
+      }
+      &.time-pm::after {
+        content: "P.M.";
+        font-size: .6em;
+      }
+    }
+    td, th {
+      text-align: center;
+      border: none;
+    }
+  }
+  .generic-icon {
+    color: $background-text-color;
+    font: normal normal normal 14px/1 MeteoconsRegular;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 700;
+  }
+  .weather-icon {
+    &.clear:before {
+      content: "\42";
+      @extend .generic-icon;
+    }
+    &.few-clouds:before {
+      content: "\41";
+      @extend .generic-icon;
+    }
+    &.scattered-clouds:before {
+      content: "\48";
+      @extend .generic-icon;
+    }
+    &.broken-clouds:before {
+      content: "\59";
+      @extend .generic-icon;
+    }
+    &.showers:before {
+      content: "\58";
+      @extend .generic-icon;
+    }
+    &.rain:before {
+      content: "\52";
+      @extend .generic-icon;
+    }
+    &.thunderstorm:before {
+      content: "\5a";
+      @extend .generic-icon;
+    }
+    &.mist:before {
+      content: "\4a";
+      @extend .generic-icon;
+    }
+    &.snow:before {
+      content: "\57";
+      @extend .generic-icon;
+    }
+  }
+}
+
+/*********************
 *  Media Queries
 **********************/
-
 @media (min-width: 550px) {
   .container {
     width: 100%;

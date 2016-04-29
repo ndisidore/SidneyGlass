@@ -51,6 +51,10 @@ Utils.doVersionCheck = function() {
   });
 }
 
+Utils.encodeObject = function(obj) {
+  return Object.keys(obj).map(k => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k])).join('&');
+}
+
 // Helper for adding CSS event listeners
 Utils.CSSPrefixedEventListener = function(element, type, callback) {
   if (typeof element === 'object' && element[0]) element = element[0];

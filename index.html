@@ -34,7 +34,29 @@
 				</table>
 			</div>
 			<div class="four columns blank" id="top-blank">&nbsp;</div>
-			<div class="four columns section" id="weather">Four</div>
+			<div class="four columns section" id="weather">
+				<table id="weather-table" class="u-full-width">
+					<thead>
+						<tr id="weather-head">
+							<th></th>
+							<th class="time-am">12</th>
+							<th class="time-am">3</th>
+							<th class="time-am">6</th>
+							<th class="time-am">9</th>
+							<th class="time-pm">12</th>
+							<th class="time-pm">3</th>
+							<th class="time-pm">6</th>
+							<th class="time-pm">9</th>
+						</tr>
+					</thead>
+					<tbody id="weather-tbody">
+						<tr class="weather-meat">
+							<td class="date-time">DT</td>
+							<td class="summary">Sum</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 		<!-- The gut of the screen -->
 		<div class="row" id="middle-row">
@@ -83,6 +105,7 @@
 	<script src="assets/js/widgets/compliments.js"></script>
 	<script src="assets/js/widgets/quote.js"></script>
 	<script src="assets/js/widgets/calendar.js"></script>
+	<script src="assets/js/widgets/weather.js"></script>
 	<script type="text/javascript">
 		//quoteWidget.init();
 	</script>

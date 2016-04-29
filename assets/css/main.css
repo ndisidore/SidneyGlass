@@ -6,6 +6,11 @@
   src: url("../fonts/raleway-regular.woff") format("woff");
   font-weight: 400;
   font-style: normal; }
+@font-face {
+  font-family: 'MeteoconsRegular';
+  src: url("../fonts/meteocons-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
 html {
   background-color: black;
   font-family: "Raleway Webfont"; }
@@ -59,12 +64,11 @@ body {
     font-size: 18px; }
   #quote::after {
     color: #808080;
-    font: normal normal normal 14px/1 FontAwesome;
+    font: normal normal normal 5em/1 FontAwesome;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     content: "\f10d";
     display: block;
-    font-size: 80px;
     line-height: 1;
     position: absolute;
     top: 10px;
@@ -86,6 +90,48 @@ body {
       padding-left: 0; }
     .section#time-and-calendars table#calendar-events td:last-child {
       padding-right: 0; }
+
+/*********************
+*  Weather Section
+**********************/
+.section#weather table#weather-table {
+  text-align: center; }
+  .section#weather table#weather-table td {
+    padding: 2px 5px; }
+  .section#weather table#weather-table th {
+    padding: 0; }
+    .section#weather table#weather-table th.time-am::after {
+      content: "A.M.";
+      font-size: .6em; }
+    .section#weather table#weather-table th.time-pm::after {
+      content: "P.M.";
+      font-size: .6em; }
+  .section#weather table#weather-table td, .section#weather table#weather-table th {
+    text-align: center;
+    border: none; }
+.section#weather .generic-icon, .section#weather .weather-icon.clear:before, .section#weather .weather-icon.few-clouds:before, .section#weather .weather-icon.scattered-clouds:before, .section#weather .weather-icon.broken-clouds:before, .section#weather .weather-icon.showers:before, .section#weather .weather-icon.rain:before, .section#weather .weather-icon.thunderstorm:before, .section#weather .weather-icon.mist:before, .section#weather .weather-icon.snow:before {
+  color: #808080;
+  font: normal normal normal 14px/1 MeteoconsRegular;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 700; }
+.section#weather .weather-icon.clear:before {
+  content: "\42"; }
+.section#weather .weather-icon.few-clouds:before {
+  content: "\41"; }
+.section#weather .weather-icon.scattered-clouds:before {
+  content: "\48"; }
+.section#weather .weather-icon.broken-clouds:before {
+  content: "\59"; }
+.section#weather .weather-icon.showers:before {
+  content: "\58"; }
+.section#weather .weather-icon.rain:before {
+  content: "\52"; }
+.section#weather .weather-icon.thunderstorm:before {
+  content: "\5a"; }
+.section#weather .weather-icon.mist:before {
+  content: "\4a"; }
+.section#weather .weather-icon.snow:before {
+  content: "\57"; }
 
 /*********************
 *  Media Queries
